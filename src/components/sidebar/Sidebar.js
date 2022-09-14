@@ -21,12 +21,14 @@ const Sidebar = () => {
     <div>
       <div className="sidebar">
       <h3>კატეგორია</h3>
-        {navigation.map((index) => (
+        {navigation.map((cat) => (
+          <Link to={`/category/${cat.id}`}>
           <div className="to-right">
             <button onChange={handleCHange}  className="menu-item">
-              {index.title}
+              {cat.title}
             </button>
           </div>
+          </Link>
         ))}
 
       </div>
