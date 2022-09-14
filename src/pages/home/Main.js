@@ -12,7 +12,7 @@ function Main() {
       <LayoutMain>
         <SearchBar/>
 
-      <CardProducts/>
+     
       </LayoutMain>
     </div>
   )
