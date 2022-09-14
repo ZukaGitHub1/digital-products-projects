@@ -1,38 +1,246 @@
-.App {
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: #212121;
+}
+/* main-content */
+.main-content {
+  display: flex;
+}
+/* Navbar */
+.main-navbar {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #333;
+}
+.main-navbar li {
+  list-style-type: none;
+}
+
+.main-navbar li a {
+  display: block;
+  color: white;
   text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 796px) {
+  .main-navbar {
+    display: none;
   }
 }
+/* Navbar...... */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* sidebar */
+.sidebar {
+  padding: 2rem;
+  transition: margin-left 2.7s;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 25px;
+  background: #333;
+  color: #fff;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  overflow-x: hidden;
+}
+.sidebar button{
+   width:100%;
+   padding:8px 12px ;
+   border-radius: 4px;
+   background-color: #dbd6c26d;
+   color:white;
+   border:1px solid rgb(29, 25, 25);
+}
+
+/* sidebar ..... */
+
+/* Product Card */
+.card-div {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 50px;
+  gap: 30px;
+}
+.card {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  background: #191919;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 100%;
+  background: #cecbc0;
+  transform: skewY(345deg);
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  top: -70%;
+  transform: skewY(390deg);
+}
+
+.card::after {
+  content: "PC-HOME";
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  font-weight: 600;
+  font-size: 4em;
+  color: rgba(230, 221, 221, 0.1);
+}
+
+.card .imgBox {
+  position: relative;
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.card .contentBox {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.card .contentBox h4 {
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card .contentBox .price {
+  font-size: 24px;
+  color: rgb(181, 160, 198);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.card .contentBox .buy {
+  position: relative;
+  top: 100px;
+  opacity: 0;
+  padding: 10px 30px;
+  margin-top: 15px;
+  color: #000000;
+  text-decoration: none;
+  background: #8f8c80;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.card:hover .contentBox .buy {
+  top: 0;
+  opacity: 1;
+}
+
+.mouse {
+  height: 230px;
+  width: auto;
+  border-radius: 12px;
+}
+/*productd card......  */
+
+/* searchBar */
+.searchbar form {
+  position: absolute;
+  transition: all 1s;
+  width: 42.5px;
+  height: 42.5px;
+  background: rgba(9, 16, 113, 0.188);
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+
+.searchbar input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  outline: 0;
+  border: 0;
+  display: none;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.searchbar .fa {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #e0dfee;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+.searchbar form:hover,
+.searchbar form:valid {
+  width: 15em;
+  cursor: pointer;
+}
+
+.searchbar form:hover input,
+.searchbar form:valid input {
+  display: block;
+}
+
+.searchbar form:hover .fa,
+.searchbar form:valid .fa {
+  background: #07051a;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.searchbar form a {
+  display: none;
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  color: rgb(11, 10, 10);
+  text-align: center;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchbar form:valid a {
+  display: block;
 }
+
+/* searchbar..... */
