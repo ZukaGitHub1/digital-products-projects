@@ -1,31 +1,34 @@
-import {  Route,   Routes } from 'react-router-dom';
-import './App.css';
-import ProductPhone from './components/categroiesFilter/ProductPhone';
-import ProductLaptop from './components/categroiesFilter/ProductLaptop';
-import Main from './pages/home/Main';
-import CardProducts from './components/cardProducts/CardProducts';
+import { useState } from "react";
+import { Route, Routes} from "react-router-dom";
+import "./App.css";
+import CardProducts from "./components/cardProducts/CardProducts";
+import CategoryPage from "./pages/categoriesPage/CategoryPage";
+import Main from "./pages/home/Main";
+import LoginPage from "./pages/logPage/LoginPage";
+import RegPage from "./pages/logPage/RegPage";
+import SingleProduct from "./pages/singleproduct/SingleProduct";
 
-
-function CategoryPage() {
-  const params = useParams();
- 
-  useEffect(() => {
-    fetch('https://academy-products.herokuapp.com/api/products/category/${params.id}')
-  }, [])
-
-  return;
-}
 
 
 function App() {
-  return <div className="App">
-    <Routes>
-      <Route  path='/' element={<Main/>}/>
-      <Route path="/category/:id" element={<CategoryPage />} />
-      <Route path='*' element={<div>page not found</div>}/>
-    </Routes>
+   
+  return (
+    <div className="App">
+      <Routes> 
+      <Route path='/' element={<RegPage/>} />
+      <Route path='/login' element={<LoginPage/>} />
+
+      
+        <Route path="/main" element={<Main />}>
+        <Route  index element={<CardProducts/>}/>
+          <Route path="/main/category/:id" element={<CategoryPage />} />
+          <Route  path="/main/category/meta/:id" element={<SingleProduct/>}/>
+        </Route>
+       
+        <Route path="*" element={<div>page not found</div>} />
+      </Routes>
     </div>
- 
+  );
 }
 
 export default App;

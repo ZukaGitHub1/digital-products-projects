@@ -3,11 +3,11 @@ import CardProductsdesign from './CardProductsdesign'
 
 function CardProductsList({list}) {
   return (
-    <div className='card-div'>
-       {list.map((index) => (
-         
-        <CardProductsdesign products={index}/>
- 
+    <div className='card-div'  >
+       {list.map((index,id) => (
+        <div key={id}>
+        <CardProductsdesign  products={index}/>
+         </div>
         ))}
     </div>
   )
