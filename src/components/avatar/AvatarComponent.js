@@ -10,10 +10,10 @@ const AvatarComponent = ({detail}) => {
   return (
     <nav>
     <ul>
-      <div class="display-picture"> <img onClick={onhanldeCLick} src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" alt=""/></div>
+      <div className="display-picture"> <img onClick={onhanldeCLick} src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" alt=""/></div>
 
       </ul>
-      <div class={(!open) ? "hidden" : "card-profile"}>
+      <div className={(!open) ? "hidden" : "card-profile"}>
         <ul>
           <li><h4>{detail.firstName} {detail.lastName}</h4></li>
           <li><h4>{detail.email}</h4></li>
