@@ -13,8 +13,8 @@ const [searchFilter, setSearchFilter] = useState([]);
       fetch(`${allproductlink}`)
         .then((res) => res.json())
         .then(product => (
-          setProductsCard(product.data),
-             setSearchFilter(product.data)))
+          setProductsCard(product.data)
+             ))
     } catch(err) {
       console.log(err);
     }
@@ -23,22 +23,23 @@ const [searchFilter, setSearchFilter] = useState([]);
     const json = { query: result };
     axios.post('https://academy-products.herokuapp.com/api/products/search', 
      json)
-    .then(function() {
-      const data = JSON.stringify(json)
-      console.log(data);
-    })
+    .then( res =>  setSearchFilter(res.data.data))
     .catch(err => (
       console.error(err)
     ))
-   },[result])
+   
+   },[result]) 
+ 
+   
    useEffect(() =>{
     const results = searchFilter.filter(resp =>
        resp.title.toLowerCase().includes(result.toLocaleLowerCase())
     );
-    setProductsCard(results)
-  },[result , searchFilter])
-  
-
+    console.log(results)
+      setProductsCard(results)
+  },[result, searchFilter])
+     
+console.log(searchFilter)
 const onChange = (evt) => {
 setResult(evt.target.value);
 }

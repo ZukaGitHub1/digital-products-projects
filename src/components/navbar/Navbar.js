@@ -1,19 +1,21 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
+import links from './links.json'
 
 
 
 
 
 const Navbar = () => {
-    const navlinks = require('./links.json') ;
-    const [navbarlinks, setNavbarlinks] = useState(navlinks)
+   
+    const [navbarlinks, setNavbarlinks] = useState(links)
 
   return (
          <div className='main-navbar'>
         
         
         {navbarlinks.map(index => (
-               <li key={index.id}><a href="/main">{index.name}</a></li> 
+               <li key={index.id}><Link to={index.href}>{index.name}</Link></li> 
         ))}
         
         </div>

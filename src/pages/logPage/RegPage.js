@@ -12,16 +12,16 @@ const RegPage = () => {
   password:"",
   age:""});
 
-  function handleOnChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  // function handleOnChange(event) {
+  //   const target = event.target;
+  //   const value = target.value;
+  //   const name = target.name;
 
-    setUser({
-      ...user,
-      [name] : value,
-    });
-  }
+  //   setUser({
+  //     ...user,
+  //     [name] : value,
+  //   });
+  // }
  
   const onSubmit = async (values, actions) => {
    
