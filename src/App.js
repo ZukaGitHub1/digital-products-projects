@@ -7,7 +7,7 @@ import Main from "./pages/home/Main";
 import LoginPage from "./pages/logPage/LoginPage";
 import RegPage from "./pages/logPage/RegPage";
 import SingleProduct from "./pages/singleproduct/SingleProduct";
-
+s
 function App() {
   return (
     <div className="App">
